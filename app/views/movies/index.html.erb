@@ -4,35 +4,33 @@
       <%= image_tag "icon/servicelogo.png", id: "servicelogo", alt: "尻撮り" %>
     </div>
   </div>
-    <% binding.pry %>
   <% @movie_lists.each.with_index(1) do |movie_list, i| %>
-    <% binding.pry %>
-	<% if i == 1 %>
-  	<div class="row no-gutter marginleft">
-	<% else %>
-  	<div class="row no-gutter margintop">
-	<% end %>
-	  <% movie_list.each.with_index(1) do |movie, index| %>
-	    <% if index == 1 %>
-    	<div class="col-xs-4 marginleft">
-		<% else %>
-     	<div class="col-xs-4 marginleft-m">
-		<% end %>
-    	    <%= video_tag(movie, controls: true, size: "100x150", poster: "/images/ra.png") %>
-    	</div>
-	  <% end %>
-  	</div>
-	<% unless i == @movie_lists.size %>
-  	<%= image_tag "icon/line.png", id: "line", alt: "矢印" %>
-	<% end %>
-  <% end %>
-</div>
+    <% if i == 1 %>
+      <div class="row no-gutter marginleft">
+      <% else %>
+        <div class="row no-gutter margintop">
+        <% end %>
+        <% movie_list.each.with_index(1) do |movie, index| %>
+          <% if index == 1 %>
+            <div class="col-xs-4 marginleft">
+            <% else %>
+              <div class="col-xs-4 marginleft-m">
+              <% end %>
+              <%= video_tag(movie, controls: true, size: "100x150", poster: "/images/#{movie.match(/^movies\/(.+).mp4/)[1]}.png") %>
+              </div>
+            <% end %>
+            </div>
+            <% unless i == @movie_lists.size %>
+              <%= image_tag "icon/line.png", id: "line", alt: "矢印" %>
+            <% end %>
+          <% end %>
+        </div>
 
-  <% @movie_lists.each do |movie_list| %>
-    <li>
-      <% movie_list.each.with_index(1) do |movie, index| %>
-        <b><%= index %></b> : <%= movie %>
-    <% end %>
-    </li>
-  <% end %>
-</ul>
+        <% @movie_lists.each do |movie_list| %>
+          <li>
+            <% movie_list.each.with_index(1) do |movie, index| %>
+              <b><%= index %></b> : <%= movie %>
+          <% end %>
+          </li>
+        <% end %>
+        </ul>
