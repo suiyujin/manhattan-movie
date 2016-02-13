@@ -17,9 +17,9 @@ img#servicelogo {
 }
 
 .marginleft-m {
-	margin-left:-30px
+	margin-left:-20px
 }
 
-.clearfloatleft {
-    clear: left;
+.marginbottom {
+	margin-bottom:80px;
 }
