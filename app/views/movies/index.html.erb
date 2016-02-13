@@ -16,7 +16,7 @@
             <% else %>
               <div class="col-xs-4 marginleft-m">
               <% end %>
-              <%= video_tag(movie, controls: true, size: "100x150", poster: "/images/#{movie.match(/^movies\/(.+).mp4/)[1]}.png") %>
+              <%= video_tag(movie.gsub(/videos\//, ''), controls: true, size: "100x150", poster: "/images/#{movie.match(/^movies\/(.+).mp4/)[1]}.png") %>
               </div>
             <% end %>
             </div>
