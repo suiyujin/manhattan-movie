@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :movies, only: :index
+
   get 'hello' => 'hello#greet'
 
   resources :movies, only: :index

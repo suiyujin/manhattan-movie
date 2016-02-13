@@ -1,10 +1,14 @@
 class MoviesController < ApplicationController
+  before_action :connect_redis, only: :index
+
   def index
-    # 決め打ちの値
-    @movie_lists = [
-      ['movies/ri.mp4', 'movies/nn.mp4', 'movies/go.mp4'],
-      ['movies/go.mp4', 'movies/ri.mp4', 'movies/ra.mp4'],
-      ['movies/ra.mp4', 'movies/tu.mp4', 'movies/pa.mp4']
-    ]
+    @movie_lists = @redis.lrange('movie_lists', 0, -1)
+    @movie_lists = @movie_lists.map { |ml| "movies/#{ml}" }.each_slice(3).to_a
+  end
+
+  private
+
+  def connect_redis
+    @redis = Redis.new
   end
 end
