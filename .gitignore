@@ -43,3 +43,4 @@ bower.json
 .DS_Store
 
 /public/movies
+/public/images
