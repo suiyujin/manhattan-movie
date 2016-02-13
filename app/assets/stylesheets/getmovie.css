@@ -1,3 +1,7 @@
+body#background1 {  
+	background-color: rgb(249,242,231);  
+}
+
 img#servicelogo {
 	width: 125px;
 	height: 125px;
