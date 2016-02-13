@@ -4,44 +4,30 @@
       <%= image_tag "icon/servicelogo.png", id: "servicelogo", alt: "尻撮り" %>
     </div>
   </div>
-  <div class="row no-gutter marginleft">
-    <div class="col-xs-4 marginleft">
-        <%= video_tag("/movies/ra.mp4", controls: true, size: "100x150", poster: "/images/ra.png") %>
-    </div>
-     <div class="col-xs-4 marginleft-m">
-        <%= video_tag("/movies/tu.mp4", controls: true, size: "100x150", poster: "/images/tu.png") %>
-    </div>
-    <div class="col-xs-4 marginleft-m">
-        <%= video_tag("/movies/pa.mp4", controls: true, size: "100x150", poster: "/images/pa.png") %>
-    </div>
-  </div>
-  <%= image_tag "icon/line.png", id: "line", alt: "矢印" %>
-  <div class="row no-gutter margintop">
-    <div class="col-xs-4 marginleft">
-        <%= video_tag("/movies/go.mp4", controls: true, size: "100x150", poster: "/images/go.png") %>
-    </div>
-     <div class="col-xs-4 marginleft-m">
-        <%= video_tag("/movies/ri.mp4", controls: true, size: "100x150", poster: "/images/ri.png") %>
-    </div>
-    <div class="col-xs-4 marginleft-m">
-        <%= video_tag("/movies/ra.mp4", controls: true, size: "100x150", poster: "/images/ra.png") %>
-    </div>
-  </div>
-  <%= image_tag "icon/line.png", id: "line", alt: "矢印" %>
-  <div class="row no-gutter margintop">
-    <div class="col-xs-4 marginleft">
-		<%= video_tag("/movies/ri.mp4", controls: true, size: "100x150", poster: "/images/ri.png") %>
-    </div>
-	 <div class="col-xs-4 marginleft-m">
-	 	<%= video_tag("/movies/nn.mp4", controls: true, size: "100x150", poster: "/images/nn.png") %>
-    </div>
-	<div class="col-xs-4 marginleft-m">
-		<%= video_tag("/movies/go.mp4", controls: true, size: "100x150" , poster: "/images/go.png") %>
-	</div>
-  </div>
+    <% binding.pry %>
+  <% @movie_lists.each.with_index(1) do |movie_list, i| %>
+    <% binding.pry %>
+	<% if i == 1 %>
+  	<div class="row no-gutter marginleft">
+	<% else %>
+  	<div class="row no-gutter margintop">
+	<% end %>
+	  <% movie_list.each.with_index(1) do |movie, index| %>
+	    <% if index == 1 %>
+    	<div class="col-xs-4 marginleft">
+		<% else %>
+     	<div class="col-xs-4 marginleft-m">
+		<% end %>
+    	    <%= video_tag(movie, controls: true, size: "100x150", poster: "/images/ra.png") %>
+    	</div>
+	  <% end %>
+  	</div>
+	<% unless i == @movie_lists.size %>
+  	<%= image_tag "icon/line.png", id: "line", alt: "矢印" %>
+	<% end %>
+  <% end %>
 </div>
 
-<ul>
   <% @movie_lists.each do |movie_list| %>
     <li>
       <% movie_list.each.with_index(1) do |movie, index| %>
