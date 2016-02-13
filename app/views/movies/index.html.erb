@@ -25,12 +25,3 @@
             <% end %>
           <% end %>
         </div>
-
-        <% @movie_lists.each do |movie_list| %>
-          <li>
-            <% movie_list.each.with_index(1) do |movie, index| %>
-              <b><%= index %></b> : <%= movie %>
-          <% end %>
-          </li>
-        <% end %>
-        </ul>
