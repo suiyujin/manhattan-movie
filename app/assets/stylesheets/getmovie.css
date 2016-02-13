@@ -12,3 +12,20 @@ img#servicelogo {
     padding-left:0;
 }
 
+.marginleft {
+	margin-left:26px;
+}
+
+.marginleft-m {
+	margin-left:-23px
+}
+
+.margintop {
+	margin-top:5px;
+}
+
+#line {
+margin-left:45px;
+width: 185px;
+height: 45px;
+}
